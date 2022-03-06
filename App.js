@@ -48,6 +48,7 @@ function MyTabBar({ state, descriptors, navigation }) {
             onPress={onPress}
             onLongPress={onLongPress}
             style={{ flex: 1 }}
+            key={index}
           >
             <Text style={{ color: isFocused ? '#673ab7' : '#222', height: 30, alignSelf: "stretch", justifyContent: 'center', padding: 5 }}>
               {label}
