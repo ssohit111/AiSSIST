@@ -1,9 +1,17 @@
 import React from 'react'
 import { Text, View } from 'react-native'
+import { Themecontext } from '../Themecontroller';
 export default function Reports() {
+    const { Dark, changeTheme } = React.useContext(Themecontext);
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text style={{ fontSize: 30 }}>Reports!</Text>
-        </View>
+        <>
+            {
+                Dark === false ? (<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
+                    <Text style={{ fontSize: 30, color: 'black' }}>Reports!</Text>
+                </View>) : (<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'black' }}>
+                    <Text style={{ fontSize: 30, color: 'white' }}>Reports!</Text>
+                </View>)
+            }
+        </>
     );
 }

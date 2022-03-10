@@ -7,11 +7,15 @@ import HomeScreen from "./screens/HomeScreen"
 import StartScreen from "./screens/StartScreen";
 import SettingScreen from "./screens/SettingScreen";
 import ReportScreen from './screens/ReportScreen'
+
+
+import { Themecontext } from "./Themecontroller";
+
 const TabNavigator = createBottomTabNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: {
-      tabBarLabel: "Home",
+      tabBarLabel: 'Home',
       tabBarOptions: {
         activeTintColor: "#006600",
       },
@@ -85,9 +89,13 @@ const TabNavigator = createBottomTabNavigator({
 const Navigator = createAppContainer(TabNavigator);
 
 export default function App() {
+  const [Dark, setDark] = React.useState(true);
+  const changeTheme = (new_Theme) => {
+    setDark(new_Theme)
+  }
   return (
-    <Navigator>
-      <HomeScreen />
-    </Navigator>
+    <Themecontext.Provider value={{ Dark, changeTheme }}>
+      <Navigator />
+    </Themecontext.Provider>
   );
 }
