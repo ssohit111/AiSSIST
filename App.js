@@ -2,6 +2,12 @@ import React from "react";
 import { View, Text } from 'react-native'
 import { Themecontext, LoginContext } from "./Themecontroller";
 
+//Supress warning
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
+
+
 import { Navigator, NavigatorDark } from "./components/TabNavigators";
 import LoginScreen from './screens/LoginScreen'
 
