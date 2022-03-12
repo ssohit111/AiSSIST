@@ -1,10 +1,14 @@
 import React from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
-import { Themecontext } from '../Themecontroller';
+import { Themecontext, LoginContext } from '../Themecontroller';
 export default function Settings() {
     const { Dark, changeTheme } = React.useContext(Themecontext);
+    const { Login, changeLogin } = React.useContext(LoginContext);
     const handlePress = () => {
         changeTheme(!Dark);
+    }
+    const handlePress1 = () => {
+        changeLogin(!Login);
     }
     return (
         <>
@@ -19,6 +23,7 @@ export default function Settings() {
                         </View>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} ><Text style={styles.textStyle}>Dark Theme </Text>{Dark === true ? (<Button title='OFF' onPress={handlePress} />) : (<Button title='ON' onPress={handlePress} />)}</View>
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} ><Button title='Log Out' onPress={handlePress1} /></View>
                     </View>
                 </View>) : (<View style={[styles1.container, {
                     flexDirection: "column",
@@ -30,6 +35,7 @@ export default function Settings() {
                         </View>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} ><Text style={styles1.textStyle}>Dark Theme </Text>{Dark === true ? (<Button title='OFF' onPress={handlePress} />) : (<Button title='ON' onPress={handlePress} />)}</View>
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} ><Button title='Log Out' onPress={handlePress1} /></View>
                     </View>
                 </View>)
             }
