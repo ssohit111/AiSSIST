@@ -170,19 +170,19 @@ const styles1 = StyleSheet.create({
         flex: 1,
         alignSelf: "stretch",
         paddingTop: 20,
-        backgroundColor: 'white'
+        backgroundColor: 'black'
     },
     titleTextStyle: {
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: 35,
         paddingLeft: 15,
-        color: 'black'
+        color: 'white'
     },
     textStyle: {
         fontSize: 22,
         paddingLeft: 10,
-        color: 'black'
+        color: 'white'
     },
     button: {
         backgroundColor: 'blue',

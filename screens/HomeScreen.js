@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         color: 'black'
     },
     textStyle: {
-        fontSize: 25,
+        fontSize: 22,
         paddingLeft: 10,
         color: 'black'
     }
