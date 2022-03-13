@@ -41,7 +41,7 @@ const Flex = () => {
             {
                 Dark === false ? (<View style={[styles.container, {
                     flexDirection: "column",
-                }]}><View style={{ flex: 2, justifyContent: 'center', alignItems: 'center', borderTopRightRadius: 30, borderTopLeftRadius: 30, margin: 1 }} >
+                }]}><View style={{ flex: 2, justifyContent: 'center', alignItems: 'center', borderTopRightRadius: 30, borderTopLeftRadius: 30, margin: 1, backgroundColor: 'red' }} >
                         <Text style={styles.titleTextStyle}> Welcome </Text>
                         <Text style={styles.titleTextStyle}> To AiSSIST</Text>
                     </View>
@@ -66,7 +66,7 @@ const Flex = () => {
                     </View></View>)
                     : (<View style={[styles1.container, {
                         flexDirection: "column",
-                    }]} ><View style={{ flex: 2, justifyContent: 'center', alignItems: 'center', borderTopRightRadius: 30, borderTopLeftRadius: 30, margin: 1 }} >
+                    }]} ><View style={{ flex: 2, justifyContent: 'center', alignItems: 'center', borderTopRightRadius: 30, borderTopLeftRadius: 30, margin: 1, backgroundColor: 'red' }} >
                             <Text style={styles1.titleTextStyle}> Welcome </Text>
                             <Text style={styles1.titleTextStyle}> To AiSSIST</Text>
                         </View>
@@ -133,7 +133,6 @@ const styles1 = StyleSheet.create({
         color: 'white'
     }
 });
-
 
 
 
