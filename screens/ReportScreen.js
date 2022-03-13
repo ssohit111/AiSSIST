@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import { Themecontext } from '../Themecontroller';
+import { Themecontext } from '../Contextcontroller';
 export default function Reports() {
     const { Dark, changeTheme } = React.useContext(Themecontext);
     return (

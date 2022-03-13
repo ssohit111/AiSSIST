@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text } from 'react-native'
-import { Themecontext, LoginContext } from "./Themecontroller";
+import { Themecontext, LoginContext } from "./Contextcontroller";
 
-//Supress warning
+// //Supress warning
 import { LogBox } from 'react-native';
 LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 LogBox.ignoreAllLogs();//Ignore all log notifications
@@ -25,7 +25,7 @@ export default function App() {
   return (
     <Themecontext.Provider value={{ Dark, changeTheme }} >
       <LoginContext.Provider value={{ Login, changeLogin }}>
-        {Login === false ? (<LoginScreen />) : (<Navigator />)}
+        {Login === true ? (<>{Dark === true ? (<NavigatorDark />) : (<Navigator />)}</>) : (<LoginScreen />)}
       </LoginContext.Provider>
     </Themecontext.Provider>
   );

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
-import { Themecontext, LoginContext } from '../Themecontroller';
+import { Themecontext, LoginContext } from '../Contextcontroller';
 export default function Settings() {
     const { Dark, changeTheme } = React.useContext(Themecontext);
     const { Login, changeLogin } = React.useContext(LoginContext);

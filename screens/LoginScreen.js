@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { auth } from '../components/Firebase'
-import { Themecontext, LoginContext } from '../Themecontroller'
+import { Themecontext, LoginContext } from '../Contextcontroller'
 
 const LoginScreen = () => {
     const { Dark, changeTheme } = useContext(Themecontext);

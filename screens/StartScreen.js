@@ -6,7 +6,7 @@ import { Entypo } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import { Alert } from 'react-native';
 
-import { Themecontext } from '../Themecontroller';
+import { Themecontext } from '../Contextcontroller';
 
 export default function StartScreen() {
 
@@ -162,4 +162,3 @@ const styles1 = StyleSheet.create({
     },
 
 });
-

@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Alert } from 'react-native'
 
-import { Themecontext } from '../Themecontroller';
+import { Themecontext } from '../Contextcontroller';
 
 export default function Home() {
 
