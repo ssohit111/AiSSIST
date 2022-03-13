@@ -57,23 +57,23 @@ const Flex = () => {
 
                 }]}>
 
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', elevation: 5 }} >
-                        <Text style={styles.titleTextStyle}> Start Here </Text>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', elevation: 5, margin: 10 }} >
+                        <Text style={styles.titleTextStyle}> START HERE </Text>
                     </View>
                     {/* <Line /> */}
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
+                    <View style={{ flex: 1, justifyContent: 'center', marginLeft: 7 }} >
                         <TouchableOpacity onPress={openImagePickerAsync} >
                             <Text style={styles.textStyle} > <Feather name="camera" size={30} color="black" /> <Text style={{ marginBottom: 20 }}>Take Picture of Question Paper</Text>  </Text>
                         </TouchableOpacity>
                     </View>
 
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }} >
+                    <View style={{ flex: 1, justifyContent: 'center', marginLeft: 7 }} >
                         <TouchableOpacity onPress={openImagePickerAsync} >
                             <Text style={styles.textStyle}> <Entypo name="upload" size={30} color="black" /> Upload Correct Answers  </Text>
                         </TouchableOpacity>
                     </View>
 
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }} >
+                    <View style={{ flex: 1, justifyContent: 'center', marginLeft: 7 }} >
                         <TouchableOpacity onPress={openImagePickerAsync} >
                             <Text style={styles.textStyle}> <Feather name="camera" size={30} color="black" />  Take Picture of Student's Answers </Text>
                         </TouchableOpacity>
@@ -94,23 +94,23 @@ const Flex = () => {
 
                 }]}>
 
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', elevation: 5 }} >
-                        <Text style={styles1.titleTextStyle}> Start Here </Text>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', elevation: 5, margin: 10 }} >
+                        <Text style={styles1.titleTextStyle}> START HERE </Text>
                     </View>
 
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }} >
+                    <View style={{ flex: 1, justifyContent: 'center', marginLeft: 7 }} >
                         <TouchableOpacity onPress={openImagePickerAsync} >
                             <Text style={styles1.textStyle} > <Feather name="camera" size={30} color="white" /> <Text style={{ marginBottom: 20 }}>Take picture of Question Paper</Text>  </Text>
                         </TouchableOpacity>
                     </View>
 
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }} >
+                    <View style={{ flex: 1, justifyContent: 'center', marginLeft: 7 }} >
                         <TouchableOpacity onPress={openImagePickerAsync} >
                             <Text style={styles1.textStyle}> <Entypo name="upload" size={30} color="white" /> Upload correct answers  </Text>
                         </TouchableOpacity>
                     </View>
 
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }} >
+                    <View style={{ flex: 1, justifyContent: 'center', marginLeft: 7 }} >
                         <TouchableOpacity onPress={openImagePickerAsync} >
                             <Text style={styles1.textStyle}> <Feather name="camera" size={30} color="white" />  Take picture of Student's answers </Text>
                         </TouchableOpacity>
