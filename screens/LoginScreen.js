@@ -47,10 +47,12 @@ const LoginScreen = () => {
     }
 
     return (
-        <KeyboardAvoidingView
-            style={styles.container}
-            behavior="padding"
-        >
+        // <KeyboardAvoidingView
+        //     style={styles.container}
+        //     behavior="padding"
+        // >
+
+        <View style={styles.container}>
             <View style={styles.inputContainer}>
                 <TextInput
                     placeholder="Email"
@@ -74,14 +76,14 @@ const LoginScreen = () => {
                 >
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
+                {/* <TouchableOpacity
                     onPress={handleSignUp}
                     style={[styles.button, styles.buttonOutline]}
                 >
                     <Text style={styles.buttonOutlineText}>Register</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
-        </KeyboardAvoidingView>
+        </View>
     )
 }
 
@@ -92,6 +94,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#e6e6e6'
     },
     inputContainer: {
         width: '80%'
@@ -101,6 +104,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
         paddingVertical: 10,
         borderRadius: 10,
+        margin: 10,
         marginTop: 5,
     },
     buttonContainer: {

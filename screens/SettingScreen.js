@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native'
 import { Themecontext, LoginContext } from '../Contextcontroller';
 export default function Settings() {
     const { Dark, changeTheme } = React.useContext(Themecontext);
@@ -23,7 +23,14 @@ export default function Settings() {
                         </View>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} ><Text style={styles.textStyle}>Dark Theme </Text>{Dark === true ? (<Button title='OFF' onPress={handlePress} />) : (<Button title='ON' onPress={handlePress} />)}</View>
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} ><Button title='Log Out' onPress={handlePress1} /></View>
+                        <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+                            <TouchableOpacity
+                                onPress={handlePress1}
+                                style={styles.button}
+                            >
+                                <Text style={styles.buttonText}>Log Out</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>) : (<View style={[styles1.container, {
                     flexDirection: "column",
@@ -59,7 +66,21 @@ const styles = StyleSheet.create({
         fontSize: 25,
         paddingLeft: 10,
         color: 'black'
-    }
+    },
+
+    button: {
+        backgroundColor: 'blue',
+        width: '50%',
+        padding: 15,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    buttonText: {
+        color: 'white',
+        fontWeight: '700',
+        fontSize: 16,
+    },
 });
 const styles1 = StyleSheet.create({
     container: {
@@ -78,5 +99,19 @@ const styles1 = StyleSheet.create({
         fontSize: 25,
         paddingLeft: 10,
         color: 'white'
-    }
+    },
+
+    button: {
+        backgroundColor: 'blue',
+        width: '50%',
+        padding: 15,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    buttonText: {
+        color: 'white',
+        fontWeight: '700',
+        fontSize: 16,
+    },
 });

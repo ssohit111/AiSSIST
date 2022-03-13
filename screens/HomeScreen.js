@@ -128,7 +128,7 @@ const styles1 = StyleSheet.create({
         color: 'white'
     },
     textStyle: {
-        fontSize: 25,
+        fontSize: 22,
         paddingLeft: 10,
         color: 'white'
     }
