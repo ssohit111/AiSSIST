@@ -1,19 +1,37 @@
+
 import * as React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Pressable, ScrollView } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import { Alert } from 'react-native';
-import Line from '../components/Line'
+import Line from '../components/Line';
+
+import StartForm from '../components/startform';
+
 
 import { Themecontext } from '../Contextcontroller';
 
 export default function StartScreen() {
 
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Flex />
+        <View style={styles.container}>
+
+            {/* <ScrollView> */}
+            
+            <View style={styles.titlebox}>
+                <Text  style={styles.titleTextStyle}>Please enter the test details</Text>    
+            </View>
+
+            <View style={styles.formbox}>
+
+                <StartForm />
+
+            </View>
+
+            {/* </ScrollView> */}
+
         </View>
     );
 };
@@ -58,7 +76,7 @@ const Flex = () => {
                 }]}>
 
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', elevation: 5, margin: 10 }} >
-                        <Text style={styles.titleTextStyle}> START HERE </Text>
+                        <Text style={styles.titleTextStyle}> Please enter the test details </Text>
                     </View>
                     {/* <Line /> */}
                     <View style={{ flex: 1, justifyContent: 'center', marginLeft: 7 }} >
@@ -136,14 +154,32 @@ const styles = StyleSheet.create({
         flex: 1,
         alignSelf: "stretch",
         paddingTop: 20,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        // borderColor:'black',
+        // borderWidth:3
+
     },
     titleTextStyle: {
         alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 35,
-        paddingLeft: 15,
+        fontSize: 25,
         color: 'black',
+    },
+    titlebox:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex:1.5,
+        // borderColor:'blue',
+        // borderWidth:3,
+        textAlign:'center',
+        marginTop:10
+    },
+    formbox:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex:5,
+        fontSize:20,
+        // borderColor:'blue',
+        // borderWidth:3,
     },
     textStyle: {
         fontSize: 22,
@@ -165,37 +201,37 @@ const styles = StyleSheet.create({
     },
 
 });
-const styles1 = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignSelf: "stretch",
-        paddingTop: 20,
-        backgroundColor: 'black'
-    },
-    titleTextStyle: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 35,
-        paddingLeft: 15,
-        color: 'white'
-    },
-    textStyle: {
-        fontSize: 22,
-        paddingLeft: 10,
-        color: 'white'
-    },
-    button: {
-        backgroundColor: 'blue',
-        width: '50%',
-        padding: 15,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    buttonText: {
-        color: 'white',
-        fontWeight: '700',
-        fontSize: 16,
-    },
+// const styles1 = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         alignSelf: "stretch",
+//         paddingTop: 20,
+//         backgroundColor: 'black'
+//     },
+//     titleTextStyle: {
+//         alignItems: 'center',
+//         justifyContent: 'center',
+//         fontSize: 35,
+//         paddingLeft: 15,
+//         color: 'white'
+//     },
+//     textStyle: {
+//         fontSize: 22,
+//         paddingLeft: 10,
+//         color: 'white'
+//     },
+//     button: {
+//         backgroundColor: 'blue',
+//         width: '50%',
+//         padding: 15,
+//         borderRadius: 10,
+//         alignItems: 'center',
+//         justifyContent: 'center'
+//     },
+//     buttonText: {
+//         color: 'white',
+//         fontWeight: '700',
+//         fontSize: 16,
+//     },
 
-});
+// });
