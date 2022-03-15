@@ -1,12 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, Pressable } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-
-import * as ImagePicker from 'expo-image-picker';
+import { Ionicons } from '@expo/vector-icons';
 import { Alert } from 'react-native';
 import { Camera } from 'expo-camera'
 import CameraPreview from '../Helper/CameraPreview';
@@ -67,22 +63,21 @@ const StartScreenPage2 = ({ setsecond, setthird }) => {
 
         <>
             {
-                PreviewVisible ?
+                PreviewVisible && CapturedImage.length ?
                     (<CameraPreview setPreviewVisible={setPreviewVisible} setCapturedImage={setCapturedImage} CapturedImage={CapturedImage} setsecond={setsecond} setthird={setthird} />) :
                     (<>
                         {
                             startCamera ?
 
                                 (<Camera style={{ flex: 1, width: "100%" }} ref={(r) => { camera = r }} flashMode={flashMode} type={cameraType} >
-                                    <View style={{ position: 'absolute', bottom: 40, flexDirection: 'row', flex: 1, width: '100%', padding: 20, justifyContent: 'space-between' }}>
-                                        <View style={{ alignSelf: 'center', flex: 1, alignItems: 'center' }}>
-                                            <TouchableOpacity onPress={__takePicture} style={{ width: 70, height: 70, borderRadius: 50, backgroundColor: '#fff' }} />
-                                        </View>
+                                    <View style={{ position: 'absolute', bottom: 0, flexDirection: 'row', flex: 1, width: '100%', padding: 20, justifyContent: 'center' }}>
+                                        <TouchableOpacity onPress={__takePicture} style={{ width: 70, height: 70, borderRadius: 50, backgroundColor: '#fff' }} />
                                     </View>
-                                    <View style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', padding: 15, justifyContent: 'space-between' }}>
-                                        <View >
-                                            <TouchableOpacity onPress={__switchCamera}  ><MaterialIcons name="flip-camera-ios" size={40} color="white" /></TouchableOpacity>
-                                        </View>
+                                    <View style={{ position: 'absolute', bottom: 0, width: '100%', padding: 15, marginLeft: 300 }}>
+                                        <TouchableOpacity onPress={__switchCamera}  ><MaterialIcons name="flip-camera-ios" size={40} color="white" /></TouchableOpacity>
+                                    </View>
+                                    <View style={{ position: 'absolute', bottom: 0, width: '100%', padding: 15, marginLeft: 15 }}>
+                                        <TouchableOpacity onPress={__handleFlashMode}  ><Ionicons name="ios-flash-outline" size={40} color="white" /></TouchableOpacity>
                                     </View>
 
 
@@ -90,12 +85,9 @@ const StartScreenPage2 = ({ setsecond, setthird }) => {
 
                                 (<View style={[styles.container, { flexDirection: "column", border: "solid" }]}>
 
-                                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', elevation: 5, margin: 10 }} >
-                                        <Text style={styles.titleTextStyle}> Scan Question Paper </Text>
-                                    </View >
-
-                                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', elevation: 5, margin: 10 }}>
-                                        <TouchableOpacity onPress={__startCamera} style={{ width: 130, borderRadius: 4, backgroundColor: '#14274e', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 40 }}>
+                                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                                        <Text style={styles.titleTextStyle}><Ionicons name="ios-camera-outline" size={35} color="black" /> Scan Question Paper </Text>
+                                        <TouchableOpacity onPress={__startCamera} style={{ width: 130, borderRadius: 4, backgroundColor: '#14274e', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 40, marginTop: 20 }}>
                                             <Text style={{ color: '#fff', fontWeight: 'bold', textAlign: 'center' }}>
                                                 Take a picture
                                             </Text>
@@ -120,7 +112,7 @@ const styles = StyleSheet.create({
     titleTextStyle: {
         alignItems: 'center',
         justifyContent: 'center',
-        fontSize: 35,
+        fontSize: 30,
         paddingLeft: 15,
         color: 'black',
     },

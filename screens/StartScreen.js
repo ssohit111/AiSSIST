@@ -3,7 +3,10 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Pressable } from 'reac
 import { useState, useContext } from 'react'
 import { Themecontext } from '../Contextcontroller';
 import StartScreenPage2 from './StartScreenPage2';
-import StartScreenPage1 from '../screens/StartScreenPage1'
+import StartScreenPage1 from './StartScreenPage1'
+import StartScreenPage3 from './StartScreenPage3';
+import StartScreenPage4 from './StartScreenPage4';
+
 export default function StartScreen() {
 
     return (
@@ -30,6 +33,12 @@ const Flex = () => {
             }
             {
                 second === true ? (<StartScreenPage2 setsecond={setsecond} setthird={setthird} />) : (null)
+            }
+            {
+                third === true ? (<StartScreenPage3 setthird={setthird} setfourth={setfourth} />) : (null)
+            }
+            {
+                fourth === true ? (<StartScreenPage4 setthird={setthird} setfourth={setfourth} />) : (null)
             }
         </>
     );
