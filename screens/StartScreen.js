@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Pressable } from 'reac
 import { useState, useContext } from 'react'
 import { Themecontext } from '../Contextcontroller';
 import StartScreenPage2 from './StartScreenPage2';
-import StartForm from '../components/startform'
+import StartScreenPage1 from '../screens/StartScreenPage1'
 export default function StartScreen() {
 
     return (
@@ -26,7 +26,7 @@ const Flex = () => {
     return (
         <>
             {
-                first === true ? (<StartForm setfirst={setfirst} setsecond={setsecond} />) : (null)
+                first === true ? (<StartScreenPage1 setfirst={setfirst} setsecond={setsecond} />) : (null)
             }
             {
                 second === true ? (<StartScreenPage2 setsecond={setsecond} setthird={setthird} />) : (null)
