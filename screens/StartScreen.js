@@ -38,7 +38,7 @@ const Flex = () => {
                 third === true ? (<StartScreenPage3 setthird={setthird} setfourth={setfourth} />) : (null)
             }
             {
-                fourth === true ? (<StartScreenPage4 setthird={setthird} setfourth={setfourth} />) : (null)
+                fourth === true ? (<StartScreenPage4 setfourth={setfourth} setfirst={setfirst} />) : (null)
             }
         </>
     );

@@ -7,10 +7,13 @@ const CameraPreview = ({ setPreviewVisible, setCapturedImage, CapturedImage, set
     const img = (CapturedImage[Number_of_photos - 1]).uri;
 
     const handleDone = () => {
-        setsecond(false);
-        setthird(true);
+
         // INSERT CAPTURED IMAGE TO QUESTION PAPER DATABASE :- WRITE CODE
 
+
+
+        setsecond(false);
+        setthird(true);
 
         setPreviewVisible(null);
         setCapturedImage([{}]);
