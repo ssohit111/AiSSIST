@@ -27,7 +27,7 @@ export default function StartScreenPage1({ setfirst, setsecond }) {
     return (
         <View style={styles.container}>
             <View style={styles.titlebox}>
-                <Text style={styles.titleTextStyle}>Please enter the test details</Text>
+                <Text style={styles.titleTextStyle}>Test Details</Text>
             </View>
             <View style={styles.formbox}>
                 <View style={styles.formview}>
@@ -48,7 +48,7 @@ export default function StartScreenPage1({ setfirst, setsecond }) {
                                 <TextInput
                                     style={styles.input}
                                     multiline
-                                    placeholder='Subject-ID'
+                                    placeholder='Subject'
                                     onChangeText={props.handleChange('subjectid')}
                                     value={props.values.subjectid}
                                 />
@@ -62,7 +62,7 @@ export default function StartScreenPage1({ setfirst, setsecond }) {
                                     value={props.values.testno}
                                 />
 
-                                <Button title="Go to scanning the question paper" onPress={props.handleSubmit} />
+                                <Button title="Save & Proceed" onPress={props.handleSubmit} />
                             </View>
                         )}
                     </Formik>
@@ -85,39 +85,61 @@ const styles = StyleSheet.create({
 
     },
     titlebox: {
+
         justifyContent: 'center',
         alignItems: 'center',
-        flex: 1.5,
+        flex: 2,
         // borderColor:'blue',
         // borderWidth:3,
         textAlign: 'center',
+
+        borderRadius: 10,
+        // backgroundColor:'red',
         marginTop: 10
+
     },
     titleTextStyle: {
         alignItems: 'center',
         fontSize: 25,
         color: 'black',
+        fontWeight: 'bold'
     },
     formbox: {
-        justifyContent: 'center',
+        // justifyContent: 'center',
         alignItems: 'center',
-        flex: 5,
+        flex: 4,
         fontSize: 20,
         // borderColor:'blue',
         // borderWidth:3,
     },
     input: {
+
         borderColor: 'black',
         borderWidth: 1,
-        margin: 15,
-        padding: 10
+        marginBottom: 20,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 4,
+
+        borderColor: 'white',
+        // borderWidth:5,
+        padding: 3,
+
+        borderRadius: 5,
+        backgroundColor: 'white',
+
+
     },
     formview: {
         // borderColor:'red',
         // borderWidth:10,
         width: '70%',
-        margin: 5,
-        padding: 15,
+        padding: 10,
     }
 
 })

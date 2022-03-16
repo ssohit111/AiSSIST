@@ -7,12 +7,13 @@ import StartScreenPage1 from './StartScreenPage1'
 import StartScreenPage3 from './StartScreenPage3';
 import StartScreenPage4 from './StartScreenPage4';
 
+
 export default function StartScreen() {
 
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <>
             <Flex />
-        </View>
+        </>
     );
 };
 
