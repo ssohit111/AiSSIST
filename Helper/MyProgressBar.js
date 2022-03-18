@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const ProgressBar = () => {
+const MyProgressBar = () => {
     return (
         <View>
-            <Text>ProgressBar</Text>
+            <Text>MyProgressBar</Text>
         </View>
     )
 }
 
-export default ProgressBar
+export default MyProgressBar
 
 const styles = StyleSheet.create({})

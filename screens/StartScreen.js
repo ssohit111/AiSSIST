@@ -6,12 +6,14 @@ import StartScreenPage2 from './StartScreenPage2';
 import StartScreenPage1 from './StartScreenPage1'
 import StartScreenPage3 from './StartScreenPage3';
 import StartScreenPage4 from './StartScreenPage4';
-
+import StartScreenPage4Helper from '../Helper/StartScreenPage4Helper';
+import MyProgressBar from '../Helper/MyProgressBar'
 
 export default function StartScreen() {
 
     return (
         <>
+            <MyProgressBar />
             <Flex />
         </>
     );
@@ -25,6 +27,7 @@ const Flex = () => {
     const [second, setsecond] = useState(false);
     const [third, setthird] = useState(false);
     const [fourth, setfourth] = useState(false);
+    const [helperforfourth, sethelperforfourth] = useState(false)
 
 
     return (
@@ -39,7 +42,10 @@ const Flex = () => {
                 third === true ? (<StartScreenPage3 setthird={setthird} setfourth={setfourth} />) : (null)
             }
             {
-                fourth === true ? (<StartScreenPage4 setfourth={setfourth} setfirst={setfirst} />) : (null)
+                fourth === true ? (<StartScreenPage4 setfourth={setfourth} sethelperforfourth={sethelperforfourth} />) : (null)
+            }
+            {
+                helperforfourth === true ? (<StartScreenPage4Helper sethelperforfourth={sethelperforfourth} setfirst={setfirst} />) : (null)
             }
         </>
     );
