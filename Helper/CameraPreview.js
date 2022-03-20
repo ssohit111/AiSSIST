@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { ImageBackground } from 'react-native';
 
-const CameraPreview = ({ setPreviewVisible, setCapturedImage, CapturedImage, setsecond, setthird }) => {
+const CameraPreview = ({ setPreviewVisible, setCapturedImage, CapturedImage, setsecond, setthird, progress, setprogress }) => {
     const Number_of_photos = CapturedImage.length;
     const img = (CapturedImage[Number_of_photos - 1]).uri;
 
@@ -17,6 +17,7 @@ const CameraPreview = ({ setPreviewVisible, setCapturedImage, CapturedImage, set
 
         setPreviewVisible(null);
         setCapturedImage([{}]);
+        setprogress(0.5);
     }
 
     const handleNext = () => {

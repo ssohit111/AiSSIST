@@ -1,22 +1,54 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { ImageBackground } from 'react-native';
+import { Alert } from 'react-native';
 
-const CameraPreviewStartScreenPage4Helper = ({ setPreviewVisible, setCapturedImage, CapturedImage, sethelperforfourth, setfirst }) => {
+const CameraPreviewStartScreenPage4Helper = ({ 
+    setPreviewVisible, 
+    setCapturedImage, 
+    CapturedImage, 
+    sethelperforfourth, 
+    setfirst,
+    progress,
+    setprogress
+
+}) => {
     const Number_of_photos = CapturedImage.length;
     const img = (CapturedImage[Number_of_photos - 1]).uri;
+
+    // function callalert(){
+    //     console.log("alert called");
+    //     Alert.alert(
+    //         'test data received successfully',
+    //         [
+    //         ],
+    //         { cancelable: false }
+    //     )
+    // }
 
     const handleDone = () => {
 
         // INSERT CAPTURED IMAGE TO QUESTION PAPER DATABASE :- WRITE CODE
 
+        // setprogress(1);
+        // setTimeout(() => {
+        //     callalert();
+        // }, 4000);
 
+        setprogress(0);
+        console.log("new test data received.")
 
         sethelperforfourth(false);
         setfirst(true);
 
         setPreviewVisible(null);
         setCapturedImage([{}]);
+     
+        
+
+        
+
+       
     }
 
     const handleNext = () => {

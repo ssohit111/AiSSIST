@@ -4,7 +4,7 @@ import * as DocumentPicker from 'expo-document-picker';
 import { FontAwesome5 } from '@expo/vector-icons';
 import * as FileSystem from 'expo-file-system';
 
-const StartScreenPage3 = ({ setthird, setfourth }) => {
+const StartScreenPage3 = ({ setthird, setfourth , progress, setprogress}) => {
 
     const [doc, setDoc] = useState({});
     const pickDocument = async () => {
@@ -34,6 +34,7 @@ const StartScreenPage3 = ({ setthird, setfourth }) => {
 
         setthird(false);
         setfourth(true);
+        setprogress(0.75);
     }
 
     return (

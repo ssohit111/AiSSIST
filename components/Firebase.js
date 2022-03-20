@@ -21,14 +21,14 @@ if (firebase.apps.length === 0) {
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-db.collection('testsdata').get().then((snapshot) =>{
-    snapshot.docs.forEach(doc  =>{
-        console.log(doc.data());
-    })
+// db.collection('testsdata').get().then((snapshot) =>{
+//     snapshot.docs.forEach(doc  =>{
+//         console.log(doc.data());
+//     })
 
-    // console.log(db.collections);
+//     // console.log(db.collections);
 
-});
+// });
 
 
 export { auth, db };

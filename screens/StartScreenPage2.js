@@ -9,7 +9,7 @@ import CameraPreview from '../Helper/CameraPreview';
 
 let { camera } = Camera
 
-const StartScreenPage2 = ({ setsecond, setthird }) => {
+const StartScreenPage2 = ({ setsecond, setthird, progress, setprogress }) => {
     const [startCamera, setStartCamera] = useState(false)
     const [flashMode, setFlashMode] = React.useState('off')
     const [cameraType, setCameraType] = React.useState(Camera.Constants.Type.back);
@@ -64,7 +64,14 @@ const StartScreenPage2 = ({ setsecond, setthird }) => {
         <>
             {
                 PreviewVisible && CapturedImage.length ?
-                    (<CameraPreview setPreviewVisible={setPreviewVisible} setCapturedImage={setCapturedImage} CapturedImage={CapturedImage} setsecond={setsecond} setthird={setthird} />) :
+                    (<CameraPreview 
+                        setPreviewVisible={setPreviewVisible} 
+                        setCapturedImage={setCapturedImage} 
+                        CapturedImage={CapturedImage} 
+                        setsecond={setsecond} 
+                        setthird={setthird} 
+                        progress ={progress} 
+                        setprogress={setprogress} />) :
                     (<>
                         {
                             startCamera ?

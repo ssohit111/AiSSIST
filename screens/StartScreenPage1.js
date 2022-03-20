@@ -8,7 +8,7 @@ import * as firebase from 'firebase'
 import userdata from '../data/UserInfo';
 
 const testSchema = yup.object({
-    
+
     grade: yup.string()
             .required()
             .test('is-grade', 'Enter a valid grade', (val) => {
@@ -24,7 +24,7 @@ const testSchema = yup.object({
 
         });
 
-export default function StartScreenPage1({ setfirst, setsecond }) {
+export default function StartScreenPage1({ setfirst, setsecond, progress, setprogress }) {
 
 
     const myForm = {
@@ -45,16 +45,16 @@ export default function StartScreenPage1({ setfirst, setsecond }) {
         console.log("New Test-ID is ",testid);
         
 
-        const db = firebase.firestore();
-        console.log(userdata.teacherid);
+        // const db = firebase.firestore();
+        // console.log(userdata.teacherid);
 
-        db.collection('testsdata').add({
+        // db.collection('testsdata').add({
             
-                "subject":values.subject,
-                "teacherid":userdata.teacherid,
-                "testid": testid,
+        //         "subject":values.subject,
+        //         "teacherid":userdata.teacherid,
+        //         "testid": testid,
               
-        });
+        // });
 
         // some changes are required here.
 
@@ -64,6 +64,8 @@ export default function StartScreenPage1({ setfirst, setsecond }) {
         //     })
 
         // });
+
+        setprogress(0.25);
        
 
     }

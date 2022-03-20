@@ -9,7 +9,7 @@ import CameraPreviewStartScreenPage4Helper from './CameraPreviewStartScreenPage4
 
 let { camera } = Camera
 
-const StartScreenPage4Helper = ({ sethelperforfourth, setfirst }) => {
+const StartScreenPage4Helper = ({ sethelperforfourth, setfirst, progress, setprogress }) => {
     const [startCamera, setStartCamera] = useState(false)
     const [flashMode, setFlashMode] = React.useState('off')
     const [cameraType, setCameraType] = React.useState(Camera.Constants.Type.back);
@@ -64,7 +64,15 @@ const StartScreenPage4Helper = ({ sethelperforfourth, setfirst }) => {
         <>
             {
                 PreviewVisible && CapturedImage.length ?
-                    (<CameraPreviewStartScreenPage4Helper setPreviewVisible={setPreviewVisible} setCapturedImage={setCapturedImage} CapturedImage={CapturedImage} sethelperforfourth={sethelperforfourth} setfirst={setfirst} />) :
+                    (<CameraPreviewStartScreenPage4Helper 
+                        setPreviewVisible={setPreviewVisible} 
+                        setCapturedImage={setCapturedImage} 
+                        CapturedImage={CapturedImage} 
+                        sethelperforfourth={sethelperforfourth} 
+                        setfirst={setfirst} 
+                        progress ={progress} 
+                        setprogress={setprogress}
+                        />) :
                     (<>
                         {
                             startCamera ?

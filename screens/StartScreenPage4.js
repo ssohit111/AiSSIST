@@ -2,7 +2,11 @@ import { StyleSheet, Text, View, Button } from 'react-native'
 import React from 'react'
 import DropDownPicker from 'react-native-dropdown-picker';
 import StudentInfo from '../data/StudentInfo'
-const StartScreenPage4 = ({ setfourth, sethelperforfourth }) => {
+const StartScreenPage4 = ({ 
+    setfourth, 
+    sethelperforfourth, 
+    progress, 
+    setprogress }) => {
 
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState(null);    //this is the current student selected in dropdown
@@ -26,7 +30,13 @@ const StartScreenPage4 = ({ setfourth, sethelperforfourth }) => {
         <View style={styles.container}>
             <Text style={styles.titleTextStyle}>Scan Answers</Text>
             <Text style={styles.textStyle} >Select Student </Text>
-            <DropDownPicker open={open} value={value} items={items} setOpen={setOpen} setValue={setValue} setItems={setItems} />
+            <DropDownPicker 
+                open={open} 
+                value={value} 
+                items={items} 
+                setOpen={setOpen} 
+                setValue={setValue} 
+                setItems={setItems} />
             {
                 value ?
                     (<View style={{ marginBottom: 20 }}>
