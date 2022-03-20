@@ -25,7 +25,7 @@ export default function App() {
   return (
     <Themecontext.Provider value={{ Dark, changeTheme }} >
       <LoginContext.Provider value={{ Login, changeLogin }}>
-        {Login === true ? (<>{Dark === true ? (<NavigatorDark />) : (<Navigator />)}</>) : (<LoginScreen />)}
+        {true ? (<>{Dark === true ? (<NavigatorDark />) : (<Navigator />)}</>) : (<LoginScreen />)}
       </LoginContext.Provider>
     </Themecontext.Provider>
   );

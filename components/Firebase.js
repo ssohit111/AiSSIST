@@ -18,6 +18,17 @@ if (firebase.apps.length === 0) {
     app = firebase.app()
 }
 
-const auth = firebase.auth()
+const auth = firebase.auth();
+const db = firebase.firestore();
 
-export { auth };
+db.collection('testsdata').get().then((snapshot) =>{
+    snapshot.docs.forEach(doc  =>{
+        console.log(doc.data());
+    })
+
+    // console.log(db.collections);
+
+});
+
+
+export { auth, db };

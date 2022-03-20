@@ -3,13 +3,33 @@ import React from 'react';
 import { StyleSheet, Button, TextInput, View, Text } from 'react-native';
 // import { globalStyles } from '../style/global';
 import { Formik } from 'formik';
+import * as yup from 'yup';
+import * as firebase from 'firebase'
+import userdata from '../data/UserInfo';
+
+const testSchema = yup.object({
+    
+    grade: yup.string()
+            .required()
+            .test('is-grade', 'Enter a valid grade', (val) => {
+                return parseInt(val) > 0 & parseInt(val) < 13 ;
+            }),
+    subject: yup.string()
+            .required(),
+    testno: yup.string()
+            .required("Test Number is required")
+            .test('is-testno-valild', 'Enter a valid test number', (val) => {
+                return parseInt(val) > 0 & parseInt(val) < 11 ;
+            }),
+
+        });
 
 export default function StartScreenPage1({ setfirst, setsecond }) {
 
 
     const myForm = {
         grade: '',
-        subjectid: '',
+        subject: '',
         testno: ''
     };
 
@@ -20,7 +40,31 @@ export default function StartScreenPage1({ setfirst, setsecond }) {
 
         // Things are coming here successfully !!
 
+        const testid = values.grade + values.subject + values.testno;
+      
+        console.log("New Test-ID is ",testid);
+        
 
+        const db = firebase.firestore();
+        console.log(userdata.teacherid);
+
+        db.collection('testsdata').add({
+            
+                "subject":values.subject,
+                "teacherid":userdata.teacherid,
+                "testid": testid,
+              
+        });
+
+        // some changes are required here.
+
+        // db.collection('testsdata').get().then((snapshot) =>{
+        //     snapshot.docs.forEach(doc  =>{
+        //         console.log(doc.data());
+        //     })
+
+        // });
+       
 
     }
 
@@ -34,6 +78,7 @@ export default function StartScreenPage1({ setfirst, setsecond }) {
                     <Formik
                         initialValues={myForm}
                         onSubmit={handleSubmit}
+                        validationSchema={testSchema}
                     >
                         {props => (
                             <View>
@@ -43,15 +88,19 @@ export default function StartScreenPage1({ setfirst, setsecond }) {
                                     keyboardType='numeric'
                                     onChangeText={props.handleChange('grade')}
                                     value={props.values.grade}
+                                    onBlur={props.handleBlur('grade')}
                                 />
+                                <Text style = {styles.errorText}>{props.touched.grade && props.errors.grade}</Text>
 
                                 <TextInput
                                     style={styles.input}
                                     multiline
                                     placeholder='Subject'
-                                    onChangeText={props.handleChange('subjectid')}
-                                    value={props.values.subjectid}
+                                    onChangeText={props.handleChange('subject')}
+                                    value={props.values.subject}
+                                    onBlur={props.handleBlur('subject')}
                                 />
+                                <Text style = {styles.errorText}>{props.touched.grade && props.errors.subject}</Text>
 
                                 <TextInput
                                     style={styles.input}
@@ -60,7 +109,9 @@ export default function StartScreenPage1({ setfirst, setsecond }) {
                                     keyboardType='numeric'
                                     onChangeText={props.handleChange('testno')}
                                     value={props.values.testno}
+                                    onBlur={props.handleBlur('Test Number')}
                                 />
+                                <Text style = {styles.errorText}>{props.touched.grade && props.errors.testno}</Text>
 
                                 <Button title="Save & Proceed" onPress={props.handleSubmit} />
                             </View>
@@ -85,7 +136,7 @@ const styles = StyleSheet.create({
 
     },
     titlebox: {
-
+        
         justifyContent: 'center',
         alignItems: 'center',
         flex: 2,
@@ -93,10 +144,10 @@ const styles = StyleSheet.create({
         // borderWidth:3,
         textAlign: 'center',
 
-        borderRadius: 10,
+        borderRadius:10,
         // backgroundColor:'red',
-        marginTop: 10
-
+        marginTop:10
+        
     },
     titleTextStyle: {
         alignItems: 'center',
@@ -116,30 +167,37 @@ const styles = StyleSheet.create({
 
         borderColor: 'black',
         borderWidth: 1,
-        marginBottom: 20,
+        // marginBottom: 10,
         shadowColor: '#000',
         shadowOffset: {
-            width: 0,
-            height: 2,
+        width: 0,
+        height: 2,
         },
         shadowOpacity: 0.23,
         shadowRadius: 2.62,
         elevation: 4,
-
-        borderColor: 'white',
+        
+        borderColor:'white',
         // borderWidth:5,
-        padding: 3,
+        padding:2,
 
-        borderRadius: 5,
-        backgroundColor: 'white',
+        borderRadius:5,
+        backgroundColor:'white',
 
-
+    
     },
     formview: {
         // borderColor:'red',
         // borderWidth:10,
         width: '70%',
         padding: 10,
+    },
+    errorText:{
+        color:'crimson',
+        fontWeight:'bold',
+        marginBottom:10,
+        marginTop:5,
+        textAlign:'center'
     }
 
 })
