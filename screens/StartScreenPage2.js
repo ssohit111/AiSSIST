@@ -64,13 +64,13 @@ const StartScreenPage2 = ({ setsecond, setthird, progress, setprogress }) => {
         <>
             {
                 PreviewVisible && CapturedImage.length ?
-                    (<CameraPreview 
-                        setPreviewVisible={setPreviewVisible} 
-                        setCapturedImage={setCapturedImage} 
-                        CapturedImage={CapturedImage} 
-                        setsecond={setsecond} 
-                        setthird={setthird} 
-                        progress ={progress} 
+                    (<CameraPreview
+                        setPreviewVisible={setPreviewVisible}
+                        setCapturedImage={setCapturedImage}
+                        CapturedImage={CapturedImage}
+                        setsecond={setsecond}
+                        setthird={setthird}
+                        progress={progress}
                         setprogress={setprogress} />) :
                     (<>
                         {
@@ -80,10 +80,10 @@ const StartScreenPage2 = ({ setsecond, setthird, progress, setprogress }) => {
                                     <View style={{ position: 'absolute', bottom: 0, flexDirection: 'row', flex: 1, width: '100%', padding: 20, justifyContent: 'center' }}>
                                         <TouchableOpacity onPress={__takePicture} style={{ width: 70, height: 70, borderRadius: 50, backgroundColor: '#fff' }} />
                                     </View>
-                                    <View style={{ position: 'absolute', bottom: 0, width: '100%', padding: 15, marginLeft: 300 }}>
+                                    <View style={{ position: 'absolute', bottom: 0, left: 300, width: '18%', padding: 15, }}>
                                         <TouchableOpacity onPress={__switchCamera}  ><MaterialIcons name="flip-camera-ios" size={40} color="white" /></TouchableOpacity>
                                     </View>
-                                    <View style={{ position: 'absolute', bottom: 0, width: '100%', padding: 15, marginLeft: 15 }}>
+                                    <View style={{ position: 'absolute', bottom: 0, left: 10, width: '18%', padding: 15, }}>
                                         <TouchableOpacity onPress={__handleFlashMode}  ><Ionicons name="ios-flash-outline" size={40} color="white" /></TouchableOpacity>
                                     </View>
 
