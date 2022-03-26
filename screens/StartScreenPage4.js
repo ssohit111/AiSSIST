@@ -10,18 +10,15 @@ const StartScreenPage4 = ({
 
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState(null);    //this is the current student selected in dropdown
-    const [items, setItems] = React.useState([{}]);
-    const [counter, setcounter] = React.useState(0);
+    const [items, setItems] = React.useState([{}])
     const [Name_of_Students, setName_of_Students] = React.useState(null);
     React.useEffect(() => {
-        setName_of_Students(StudentInfo.map((ele) => {
+        setName_of_Students(StudentInfo.map((ele, index) => {
             const lbl = ele.name;
             const val = ele.lname;
             setItems((prevArray) => [...prevArray, { label: lbl, value: val }]);
 
-            //To avoid error due to missing key prop in map function 
-            setcounter(prevCounter => prevCounter + 1)
-            return (<Text key={counter} >{lbl}</Text>)
+            return (<Text key={index} >{lbl}</Text>)
         }))
 
     }, [])
@@ -37,10 +34,10 @@ const StartScreenPage4 = ({
                 items={items}
                 setOpen={setOpen}
                 setValue={setValue}
-                setItems={setItems} />
+                setItems={setItems} style={{ width: 200, alignItems: 'center', justifyContent: 'center', marginLeft: 100 }} />
             {
                 value ?
-                    (<View style={{ marginBottom: 20 }}>
+                    (<View style={{ marginBottom: 20, marginTop: 20 }}>
                         <Button title="Enter to Scan Answers" onPress={() => { setfourth(false); sethelperforfourth(true) }} />
                     </View>) :
                     (null)
@@ -62,13 +59,16 @@ const styles = StyleSheet.create({
     },
     titleTextStyle: {
         alignItems: 'center',
-        fontSize: 25,
+        justifyContent: 'center',
+        fontSize: 30,
+        paddingLeft: 15,
+        marginBottom: 100,
         color: 'black',
-        alignItems: 'center',
-        marginBottom: 20
     },
     textStyle: {
         fontSize: 22,
         paddingLeft: 10,
+        marginBottom: 10,
+        color: 'black'
     },
 })
