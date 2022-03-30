@@ -45,14 +45,14 @@ const Flex = () => {
                     <Text style={[styles.titleTextStyle, themeTextStyle]}> To AiSSIST</Text>
                 </View>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 10, elevation: 5 }} >
-                    <Text style={[styles.textStyle, themeTextStyle]} onPress={showAlert}> <FontAwesome5 name="play-circle" size={30} color={themeTextStyle} /> New Here? See How it works? </Text>
+                    <Text style={[styles.textStyle, themeTextStyle]} onPress={showAlert}> <FontAwesome5 name="play-circle" size={35} color={themeTextStyle} /> New Here? See How it works? </Text>
                 </View>
 
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 10, elevation: 5 }} >
-                    <Text style={[styles.textStyle, themeTextStyle]} onPress={showAlert}> <Entypo name="info-with-circle" size={30} color={themeTextStyle} /> Who are we</Text>
+                    <Text style={[styles.textStyle, themeTextStyle]} onPress={showAlert}> <Entypo name="info-with-circle" size={35} color={themeTextStyle} /> Who are we</Text>
                 </View>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 10, elevation: 5 }} >
-                    <Text style={[styles.textStyle, themeTextStyle]} onPress={showAlert}> <Feather name="phone-call" size={30} color={themeTextStyle} /> Ping Us for Support </Text>
+                    <Text style={[styles.textStyle, themeTextStyle]} onPress={showAlert}> <Feather name="phone-call" size={35} color={themeTextStyle} /> Ping Us for Support </Text>
                 </View>
             </View>
         </>
@@ -71,8 +71,9 @@ const styles = StyleSheet.create({
         fontFamily: 'serif',
     },
     textStyle: {
-        fontSize: 22,
+        fontSize: 20,
         paddingLeft: 10,
+        fontFamily: 'serif',
     },
     lightContainer: {
         // backgroundColor: '#d0d0c0',

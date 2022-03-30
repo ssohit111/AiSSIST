@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     textStyle: {
         fontSize: 25,
         paddingLeft: 10,
+        fontFamily: 'serif',
     },
 
     button: {
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     buttonText: {
         // color: 'white',
         fontWeight: '700',
-        fontSize: 16,
+        fontSize: 20,
     },
     lightContainer: {
         // backgroundColor: '#d0d0c0',
