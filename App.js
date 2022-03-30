@@ -8,7 +8,7 @@ LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 LogBox.ignoreAllLogs();//Ignore all log notifications
 
 
-import { Navigator, NavigatorDark } from "./components/TabNavigators";
+import { Navigator, NavigatorDark } from './components/TabNavigators'
 import LoginScreen from './screens/LoginScreen'
 
 export default function App() {
@@ -25,7 +25,7 @@ export default function App() {
   return (
     <Themecontext.Provider value={{ Dark, changeTheme }} >
       <LoginContext.Provider value={{ Login, changeLogin }}>
-        {true ? (<>{Dark === true ? (<NavigatorDark />) : (<Navigator />)}</>) : (<LoginScreen />)}
+        {Login ? (<>{Dark === true ? (<NavigatorDark />) : (<Navigator />)}</>) : (<LoginScreen />)}
       </LoginContext.Provider>
     </Themecontext.Provider>
   );

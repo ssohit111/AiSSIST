@@ -3,6 +3,9 @@ import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native'
 import { Themecontext, LoginContext } from '../Contextcontroller';
 export default function Settings() {
     const { Dark, changeTheme } = React.useContext(Themecontext);
+    const themeContainerStyle = Dark === false ? styles.lightContainer : styles.darkContainer;
+    const themeTextStyle = Dark === false ? styles.lightThemeText : styles.darkThemeText;
+
     const { Login, changeLogin } = React.useContext(LoginContext);
     const handlePress = () => {
         changeTheme(!Dark);
@@ -12,67 +15,31 @@ export default function Settings() {
     }
     return (
         <>
-            {
-                Dark === false ? (<View style={[styles.container, {
-                    flexDirection: "column",
-                }]}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <View style={[styles.container, { flexDirection: "column", }, themeContainerStyle]}>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', elevation: 10 }} >
-                            <Text style={styles.titleTextStyle}> Settings </Text>
-                        </View>
-
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} ><Text style={styles.textStyle}>Dark Theme </Text>{Dark === true ? (<TouchableOpacity
-                            onPress={handlePress}
-                            style={styles.button1}
-                        >
-                            <Text style={styles.buttonText}>OFF</Text>
-                        </TouchableOpacity>) : (<TouchableOpacity
-                            onPress={handlePress}
-                            style={styles.button1}
-                        >
-                            <Text style={styles.buttonText}>ON</Text>
-                        </TouchableOpacity>)}</View>
-                        <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-                            <TouchableOpacity
-                                onPress={handlePress1}
-                                style={styles.button}
-                            >
-                                <Text style={styles.buttonText}>Log Out</Text>
-                            </TouchableOpacity>
-                        </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', elevation: 10 }} >
+                        <Text style={[styles.titleTextStyle, themeTextStyle]}> Settings </Text>
                     </View>
-                </View>) : (<View style={[styles1.container, {
-                    flexDirection: "column",
-                }]}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', elevation: 10 }} >
-                            <Text style={styles1.titleTextStyle}> Settings </Text>
-                        </View>
-
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} ><Text style={styles1.textStyle}>Dark Theme </Text>{Dark === true ? (<TouchableOpacity
-                            onPress={handlePress}
-                            style={styles1.button1}
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} ><Text style={[styles.textStyle, themeTextStyle]}>Dark Theme </Text>{Dark === true ? (<TouchableOpacity onPress={handlePress} style={styles.button1}>
+                        <Text style={[styles.buttonText, themeTextStyle]}>OFF</Text>
+                    </TouchableOpacity>) : (<TouchableOpacity
+                        onPress={handlePress}
+                        style={styles.button1}
+                    >
+                        <Text style={[styles.buttonText, themeTextStyle]}>ON</Text>
+                    </TouchableOpacity>)}</View>
+                    <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+                        <TouchableOpacity
+                            onPress={handlePress1}
+                            style={styles.button}
                         >
-                            <Text style={styles1.buttonText}>OFF</Text>
-                        </TouchableOpacity>) : (<TouchableOpacity
-                            onPress={handlePress}
-                            style={styles1.button1}
-                        >
-                            <Text style={styles1.buttonText}>ON</Text>
-                        </TouchableOpacity>)}</View>
-                        <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-                            <TouchableOpacity
-                                onPress={handlePress1}
-                                style={styles.button}
-                            >
-                                <Text style={styles.buttonText}>Log Out</Text>
-                            </TouchableOpacity>
-                        </View>
+                            <Text style={[styles.buttonText, themeTextStyle]}>Log Out</Text>
+                        </TouchableOpacity>
                     </View>
-                </View>)
-            }
+                </View>
+            </View>
         </>
     );
 }
@@ -81,80 +48,50 @@ const styles = StyleSheet.create({
         flex: 1,
         alignSelf: "stretch",
         paddingTop: 20,
+    },
+    titleTextStyle: {
+        fontSize: 50,
+        paddingLeft: 15,
+        fontFamily: 'serif',
+    },
+    textStyle: {
+        fontSize: 25,
+        paddingLeft: 10,
+    },
+
+    button: {
+        backgroundColor: 'seagreen',
+        width: '50%',
+        padding: 15,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    button1: {
+        backgroundColor: 'seagreen',
+        width: '20%',
+        padding: 15,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    buttonText: {
+        // color: 'white',
+        fontWeight: '700',
+        fontSize: 16,
+    },
+    lightContainer: {
+        // backgroundColor: '#d0d0c0',
         backgroundColor: 'white'
     },
-    titleTextStyle: {
-        fontSize: 50,
-        paddingLeft: 15,
-        fontFamily: 'serif',
+    darkContainer: {
+        backgroundColor: '#242c40',
+    },
+    lightThemeText: {
+        // color: '#242c40',
         color: 'black'
     },
-    textStyle: {
-        fontSize: 25,
-        paddingLeft: 10,
-        color: 'black'
-    },
-
-    button: {
-        backgroundColor: 'blue',
-        width: '50%',
-        padding: 15,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    button1: {
-        backgroundColor: 'blue',
-        width: '20%',
-        padding: 15,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    buttonText: {
-        color: 'white',
-        fontWeight: '700',
-        fontSize: 16,
-    },
-});
-const styles1 = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignSelf: "stretch",
-        paddingTop: 20,
-        backgroundColor: 'black'
-    },
-    titleTextStyle: {
-        fontSize: 50,
-        paddingLeft: 15,
-        fontFamily: 'serif',
-        color: 'white'
-    },
-    textStyle: {
-        fontSize: 25,
-        paddingLeft: 10,
-        color: 'white'
-    },
-
-    button: {
-        backgroundColor: 'blue',
-        width: '50%',
-        padding: 15,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    button1: {
-        backgroundColor: 'blue',
-        width: '20%',
-        padding: 15,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    buttonText: {
-        color: 'white',
-        fontWeight: '700',
-        fontSize: 16,
+    darkThemeText: {
+        color: '#d0d0c0',
     },
 });

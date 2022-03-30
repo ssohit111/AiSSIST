@@ -35,62 +35,26 @@ const showAlert = () => {
 
 const Flex = () => {
     const { Dark, changeTheme } = React.useContext(Themecontext);
+    const themeContainerStyle = Dark === false ? styles.lightContainer : styles.darkContainer;
+    const themeTextStyle = Dark === false ? styles.lightThemeText : styles.darkThemeText;
     return (
-        < >
+        <>
+            <View style={[styles.container, { flexDirection: "column", }, themeContainerStyle]}>
+                <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center', borderTopRightRadius: 30, borderTopLeftRadius: 30, margin: 1, backgroundColor: 'red' }} >
+                    <Text style={[styles.titleTextStyle, themeTextStyle]}> Welcome </Text>
+                    <Text style={[styles.titleTextStyle, themeTextStyle]}> To AiSSIST</Text>
+                </View>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 10, elevation: 5 }} >
+                    <Text style={[styles.textStyle, themeTextStyle]} onPress={showAlert}> <FontAwesome5 name="play-circle" size={30} color={themeTextStyle} /> New Here? See How it works? </Text>
+                </View>
 
-            {
-                Dark === false ? (<View style={[styles.container, {
-                    flexDirection: "column",
-                }]}><View style={{ flex: 2, justifyContent: 'center', alignItems: 'center', borderTopRightRadius: 30, borderTopLeftRadius: 30, margin: 1, backgroundColor: 'red' }} >
-                        <Text style={styles.titleTextStyle}> Welcome </Text>
-                        <Text style={styles.titleTextStyle}> To AiSSIST</Text>
-                    </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 10, elevation: 5 }} >
-                        <Text style={styles.textStyle} onPress={showAlert}> <FontAwesome5 name="play-circle" size={30} color="black" /> New Here? See How it works? </Text>
-                    </View>
-
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 10, elevation: 5 }} >
-                        <Text style={styles.textStyle} onPress={showAlert}> <Entypo name="info-with-circle" size={30} color="black" /> Who are we</Text>
-                    </View>
-                    {/* <View
-                style={{
-                    flex: 0.15,
-                    borderBottomColor: 'white',
-                    borderBottomWidth: 1,
-                }}
-            /> */}
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 10, elevation: 5 }} >
-                        <Text style={styles.textStyle} onPress={showAlert}> <Feather name="phone-call" size={30} color="black" /> Ping Us for Support </Text>
-
-
-                    </View></View>)
-                    : (<View style={[styles1.container, {
-                        flexDirection: "column",
-                    }]} ><View style={{ flex: 2, justifyContent: 'center', alignItems: 'center', borderTopRightRadius: 30, borderTopLeftRadius: 30, margin: 1, backgroundColor: 'red' }} >
-                            <Text style={styles1.titleTextStyle}> Welcome </Text>
-                            <Text style={styles1.titleTextStyle}> To AiSSIST</Text>
-                        </View>
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 10, elevation: 5, }} >
-                            <Text style={styles1.textStyle} onPress={showAlert}> <FontAwesome5 name="play-circle" size={30} color="white" /> New Here? See How it works? </Text>
-                        </View>
-
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 10, elevation: 5 }} >
-                            <Text style={styles1.textStyle} onPress={showAlert}> <Entypo name="info-with-circle" size={30} color="white" /> Who are we</Text>
-                        </View>
-                        {/* <View
-                style={{
-                    flex: 0.15,
-                    borderBottomColor: 'white',
-                    borderBottomWidth: 1,
-                }}
-            /> */}
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 10, elevation: 5 }} >
-                            <Text style={styles1.textStyle} onPress={showAlert}> <Feather name="phone-call" size={30} color="white" /> Ping Us for Support </Text>
-
-
-                        </View></View>)
-            }
-
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 10, elevation: 5 }} >
+                    <Text style={[styles.textStyle, themeTextStyle]} onPress={showAlert}> <Entypo name="info-with-circle" size={30} color={themeTextStyle} /> Who are we</Text>
+                </View>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 10, elevation: 5 }} >
+                    <Text style={[styles.textStyle, themeTextStyle]} onPress={showAlert}> <Feather name="phone-call" size={30} color={themeTextStyle} /> Ping Us for Support </Text>
+                </View>
+            </View>
         </>
     );
 };
@@ -100,38 +64,30 @@ const styles = StyleSheet.create({
         flex: 1,
         alignSelf: "stretch",
         paddingTop: 20,
+    },
+    titleTextStyle: {
+        fontSize: 50,
+        paddingLeft: 15,
+        fontFamily: 'serif',
+    },
+    textStyle: {
+        fontSize: 22,
+        paddingLeft: 10,
+    },
+    lightContainer: {
+        // backgroundColor: '#d0d0c0',
         backgroundColor: 'white'
     },
-    titleTextStyle: {
-        fontSize: 50,
-        paddingLeft: 15,
-        fontFamily: 'serif',
+    darkContainer: {
+        backgroundColor: '#242c40',
+    },
+    lightThemeText: {
+        // color: '#242c40',
         color: 'black'
     },
-    textStyle: {
-        fontSize: 22,
-        paddingLeft: 10,
-        color: 'black'
-    }
-});
-const styles1 = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignSelf: "stretch",
-        paddingTop: 20,
-        backgroundColor: 'black'
+    darkThemeText: {
+        color: '#d0d0c0',
     },
-    titleTextStyle: {
-        fontSize: 50,
-        paddingLeft: 15,
-        fontFamily: 'serif',
-        color: 'white'
-    },
-    textStyle: {
-        fontSize: 22,
-        paddingLeft: 10,
-        color: 'white'
-    }
 });
 
 

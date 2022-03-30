@@ -7,9 +7,18 @@ import { Alert } from 'react-native';
 import { Camera } from 'expo-camera'
 import CameraPreview from '../Helper/CameraPreview';
 
+import { Themecontext } from '../Contextcontroller';
+
+
 let { camera } = Camera
 
 const StartScreenPage2 = ({ setsecond, setthird, progress, setprogress }) => {
+
+    const { Dark, changeTheme } = React.useContext(Themecontext);
+    const themeContainerStyle = Dark === false ? styles.lightContainer : styles.darkContainer;
+    const themeTextStyle = Dark === false ? styles.lightThemeText : styles.darkThemeText;
+
+
     const [startCamera, setStartCamera] = useState(false)
     const [flashMode, setFlashMode] = React.useState('off')
     const [cameraType, setCameraType] = React.useState(Camera.Constants.Type.back);
@@ -76,26 +85,26 @@ const StartScreenPage2 = ({ setsecond, setthird, progress, setprogress }) => {
                         {
                             startCamera ?
 
-                                (<Camera style={{ flex: 1, width: "100%" }} ref={(r) => { camera = r }} flashMode={flashMode} type={cameraType} >
+                                (<Camera style={[{ flex: 1, width: "100%" }, themeContainerStyle]} ref={(r) => { camera = r }} flashMode={flashMode} type={cameraType} >
                                     <View style={{ position: 'absolute', bottom: 0, flexDirection: 'row', flex: 1, width: '100%', padding: 20, justifyContent: 'center' }}>
-                                        <TouchableOpacity onPress={__takePicture} style={{ width: 70, height: 70, borderRadius: 50, backgroundColor: '#fff' }} />
+                                        <TouchableOpacity onPress={__takePicture} style={[{ width: 70, height: 70, borderRadius: 50, }, themeContainerStyle]} />
                                     </View>
                                     <View style={{ position: 'absolute', bottom: 0, left: 300, width: '18%', padding: 15, }}>
-                                        <TouchableOpacity onPress={__switchCamera}  ><MaterialIcons name="flip-camera-ios" size={40} color="white" /></TouchableOpacity>
+                                        <TouchableOpacity onPress={__switchCamera}  ><MaterialIcons name="flip-camera-ios" size={40} color='white' /></TouchableOpacity>
                                     </View>
                                     <View style={{ position: 'absolute', bottom: 0, left: 10, width: '18%', padding: 15, }}>
-                                        <TouchableOpacity onPress={__handleFlashMode}  ><Ionicons name="ios-flash-outline" size={40} color="white" /></TouchableOpacity>
+                                        <TouchableOpacity onPress={__handleFlashMode}  ><Ionicons name="ios-flash-outline" size={40} color='white' /></TouchableOpacity>
                                     </View>
 
 
                                 </Camera >) :
 
-                                (<View style={[styles.container, { flexDirection: "column", border: "solid" }]}>
+                                (<View style={[styles.container, { flexDirection: "column", border: "solid" }, themeContainerStyle]}>
 
                                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                                        <Text style={styles.titleTextStyle}><Ionicons name="ios-camera-outline" size={35} color="black" /> Scan Question Paper </Text>
-                                        <TouchableOpacity onPress={__startCamera} style={{ width: 130, borderRadius: 4, backgroundColor: '#14274e', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 40, marginTop: 20 }}>
-                                            <Text style={{ color: '#fff', fontWeight: 'bold', textAlign: 'center' }}>
+                                        <Text style={[styles.titleTextStyle, themeTextStyle]}><Ionicons name="ios-camera-outline" size={35} color={themeTextStyle} /> Scan Question Paper </Text>
+                                        <TouchableOpacity onPress={__startCamera} style={{ width: 130, borderRadius: 4, backgroundColor: 'seagreen', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 40, marginTop: 20 }}>
+                                            <Text style={[{ fontWeight: 'bold', textAlign: 'center' }, themeTextStyle]}>
                                                 Take a picture
                                             </Text>
                                         </TouchableOpacity>
@@ -114,66 +123,43 @@ const styles = StyleSheet.create({
         flex: 1,
         alignSelf: "stretch",
         paddingTop: 20,
-        backgroundColor: 'white'
     },
     titleTextStyle: {
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: 30,
         paddingLeft: 15,
-        color: 'black',
     },
     textStyle: {
         fontSize: 22,
         paddingLeft: 10,
+    },
+    button: {
+        backgroundColor: 'blue',
+        width: '50%',
+        padding: 15,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    buttonText: {
+        color: 'white',
+        fontWeight: '700',
+        fontSize: 16,
+    },
+    lightContainer: {
+        // backgroundColor: '#d0d0c0',
+        backgroundColor: 'white'
+    },
+    darkContainer: {
+        backgroundColor: '#242c40',
+    },
+    lightThemeText: {
+        // color: '#242c40',
         color: 'black'
     },
-    button: {
-        backgroundColor: 'blue',
-        width: '50%',
-        padding: 15,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    buttonText: {
-        color: 'white',
-        fontWeight: '700',
-        fontSize: 16,
-    },
-
-});
-const styles1 = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignSelf: "stretch",
-        paddingTop: 20,
-        backgroundColor: 'black'
-    },
-    titleTextStyle: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 35,
-        paddingLeft: 15,
-        color: 'white'
-    },
-    textStyle: {
-        fontSize: 22,
-        paddingLeft: 10,
-        color: 'white'
-    },
-    button: {
-        backgroundColor: 'blue',
-        width: '50%',
-        padding: 15,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    buttonText: {
-        color: 'white',
-        fontWeight: '700',
-        fontSize: 16,
+    darkThemeText: {
+        color: '#d0d0c0',
     },
 
 });

@@ -6,25 +6,30 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import * as firebase from 'firebase'
 import userdata from '../data/UserInfo';
+import { Themecontext } from '../Contextcontroller';
 
 const testSchema = yup.object({
 
     grade: yup.string()
-            .required()
-            .test('is-grade', 'Enter a valid grade', (val) => {
-                return parseInt(val) > 0 & parseInt(val) < 13 ;
-            }),
+        .required()
+        .test('is-grade', 'Enter a valid grade', (val) => {
+            return parseInt(val) > 0 & parseInt(val) < 13;
+        }),
     subject: yup.string()
-            .required(),
+        .required(),
     testno: yup.string()
-            .required("Test Number is required")
-            .test('is-testno-valild', 'Enter a valid test number', (val) => {
-                return parseInt(val) > 0 & parseInt(val) < 11 ;
-            }),
+        .required("Test Number is required")
+        .test('is-testno-valild', 'Enter a valid test number', (val) => {
+            return parseInt(val) > 0 & parseInt(val) < 11;
+        }),
 
-        });
+});
 
 export default function StartScreenPage1({ setfirst, setsecond, progress, setprogress }) {
+
+    const { Dark, changeTheme } = React.useContext(Themecontext);
+    const themeContainerStyle = Dark === false ? styles.lightContainer : styles.darkContainer;
+    const themeTextStyle = Dark === false ? styles.lightThemeText : styles.darkThemeText;
 
 
     const myForm = {
@@ -41,19 +46,19 @@ export default function StartScreenPage1({ setfirst, setsecond, progress, setpro
         // Things are coming here successfully !!
 
         const testid = values.grade + values.subject + values.testno;
-      
-        console.log("New Test-ID is ",testid);
-        
+
+        console.log("New Test-ID is ", testid);
+
 
         // const db = firebase.firestore();
         // console.log(userdata.teacherid);
 
         // db.collection('testsdata').add({
-            
+
         //         "subject":values.subject,
         //         "teacherid":userdata.teacherid,
         //         "testid": testid,
-              
+
         // });
 
         // some changes are required here.
@@ -66,14 +71,14 @@ export default function StartScreenPage1({ setfirst, setsecond, progress, setpro
         // });
 
         setprogress(0.25);
-       
+
 
     }
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, themeContainerStyle]}>
             <View style={styles.titlebox}>
-                <Text style={styles.titleTextStyle}>Test Details</Text>
+                <Text style={[styles.titleTextStyle, themeTextStyle]}>Test Details</Text>
             </View>
             <View style={styles.formbox}>
                 <View style={styles.formview}>
@@ -92,7 +97,7 @@ export default function StartScreenPage1({ setfirst, setsecond, progress, setpro
                                     value={props.values.grade}
                                     onBlur={props.handleBlur('grade')}
                                 />
-                                <Text style = {styles.errorText}>{props.touched.grade && props.errors.grade}</Text>
+                                <Text style={styles.errorText}>{props.touched.grade && props.errors.grade}</Text>
 
                                 <TextInput
                                     style={styles.input}
@@ -102,7 +107,7 @@ export default function StartScreenPage1({ setfirst, setsecond, progress, setpro
                                     value={props.values.subject}
                                     onBlur={props.handleBlur('subject')}
                                 />
-                                <Text style = {styles.errorText}>{props.touched.grade && props.errors.subject}</Text>
+                                <Text style={styles.errorText}>{props.touched.grade && props.errors.subject}</Text>
 
                                 <TextInput
                                     style={styles.input}
@@ -113,7 +118,7 @@ export default function StartScreenPage1({ setfirst, setsecond, progress, setpro
                                     value={props.values.testno}
                                     onBlur={props.handleBlur('Test Number')}
                                 />
-                                <Text style = {styles.errorText}>{props.touched.grade && props.errors.testno}</Text>
+                                <Text style={styles.errorText}>{props.touched.grade && props.errors.testno}</Text>
 
                                 <Button title="Save & Proceed" onPress={props.handleSubmit} />
                             </View>
@@ -132,13 +137,10 @@ const styles = StyleSheet.create({
         flex: 1,
         alignSelf: "stretch",
         paddingTop: 20,
-        backgroundColor: 'white',
-        // borderColor:'black',
-        // borderWidth:3
 
     },
     titlebox: {
-        
+
         justifyContent: 'center',
         alignItems: 'center',
         flex: 2,
@@ -146,15 +148,14 @@ const styles = StyleSheet.create({
         // borderWidth:3,
         textAlign: 'center',
 
-        borderRadius:10,
+        borderRadius: 10,
         // backgroundColor:'red',
-        marginTop:10
-        
+        marginTop: 10
+
     },
     titleTextStyle: {
         alignItems: 'center',
         fontSize: 25,
-        color: 'black',
         fontWeight: 'bold'
     },
     formbox: {
@@ -172,21 +173,21 @@ const styles = StyleSheet.create({
         // marginBottom: 10,
         shadowColor: '#000',
         shadowOffset: {
-        width: 0,
-        height: 2,
+            width: 0,
+            height: 2,
         },
         shadowOpacity: 0.23,
         shadowRadius: 2.62,
         elevation: 4,
-        
-        borderColor:'white',
+
+        borderColor: 'white',
         // borderWidth:5,
-        padding:2,
+        padding: 2,
 
-        borderRadius:5,
-        backgroundColor:'white',
+        borderRadius: 5,
+        backgroundColor: 'white',
 
-    
+
     },
     formview: {
         // borderColor:'red',
@@ -194,12 +195,26 @@ const styles = StyleSheet.create({
         width: '70%',
         padding: 10,
     },
-    errorText:{
-        color:'crimson',
-        fontWeight:'bold',
-        marginBottom:10,
-        marginTop:5,
-        textAlign:'center'
-    }
+    errorText: {
+        color: 'crimson',
+        fontWeight: 'bold',
+        marginBottom: 10,
+        marginTop: 5,
+        textAlign: 'center'
+    },
+    lightContainer: {
+        // backgroundColor: '#d0d0c0',
+        backgroundColor: 'white'
+    },
+    darkContainer: {
+        backgroundColor: '#242c40',
+    },
+    lightThemeText: {
+        // color: '#242c40',
+        color: 'black'
+    },
+    darkThemeText: {
+        color: '#d0d0c0',
+    },
 
 })

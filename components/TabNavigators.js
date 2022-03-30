@@ -91,7 +91,7 @@ const TabNavigatorDark = createBottomTabNavigator({
             tabBarOptions: {
                 activeTintColor: "#006600",
                 style: {
-                    backgroundColor: 'black'
+                    backgroundColor: '#242c40'
                 }
             },
             tabBarIcon: (tabInfo) => {
@@ -112,7 +112,7 @@ const TabNavigatorDark = createBottomTabNavigator({
             tabBarOptions: {
                 activeTintColor: "#006600",
                 style: {
-                    backgroundColor: 'black'
+                    backgroundColor: '#242c40'
                 }
             },
             tabBarIcon: (tabInfo) => {
@@ -133,7 +133,7 @@ const TabNavigatorDark = createBottomTabNavigator({
             tabBarOptions: {
                 activeTintColor: "#006600",
                 style: {
-                    backgroundColor: 'black'
+                    backgroundColor: '#242c40'
                 }
             },
             tabBarIcon: (tabInfo) => {
@@ -154,7 +154,7 @@ const TabNavigatorDark = createBottomTabNavigator({
             tabBarOptions: {
                 activeTintColor: "#006600",
                 style: {
-                    backgroundColor: 'black'
+                    backgroundColor: '#242c40'
                 }
             },
             tabBarIcon: (tabInfo) => {

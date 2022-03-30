@@ -3,11 +3,11 @@ import React from 'react'
 import { ImageBackground } from 'react-native';
 import { Alert } from 'react-native';
 
-const CameraPreviewStartScreenPage4Helper = ({ 
-    setPreviewVisible, 
-    setCapturedImage, 
-    CapturedImage, 
-    sethelperforfourth, 
+const CameraPreviewStartScreenPage4Helper = ({
+    setPreviewVisible,
+    setCapturedImage,
+    CapturedImage,
+    sethelperforfourth,
     setfirst,
     progress,
     setprogress
@@ -43,12 +43,12 @@ const CameraPreviewStartScreenPage4Helper = ({
 
         setPreviewVisible(null);
         setCapturedImage([{}]);
-     
-        
 
-        
 
-       
+
+
+
+
     }
 
     const handleNext = () => {
